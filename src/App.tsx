@@ -1,19 +1,20 @@
-import { createBrowserRouter, RouterProvider } from "react-router";
-import { NuqsAdapter } from "nuqs/adapters/react";
-import RootLayout from "./layout";
-import QueryProvider from "./lib/query-provider";
+import { createBrowserRouter, RouterProvider } from 'react-router';
+import { NuqsAdapter } from 'nuqs/adapters/react';
+import RootLayout from './layout';
+import QueryProvider from './lib/query-provider';
+import Welcome from './pages/welcome';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <RootLayout />,
     // errorElement: <ErrorPage />,
     // loader: checkAuthLoader,
     children: [
-      // {
-      //   path: '/',
-      //   element: <Overview />,
-      // },
+      {
+        path: '/',
+        element: <Welcome />,
+      },
       // {
       //   path: '/courses',
       //   element: <Courses />,

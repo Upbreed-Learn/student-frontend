@@ -1,3 +1,4 @@
+import { Outlet } from 'react-router';
 import Footer from './footer';
 import Navbar from './navbar';
 import { Toaster } from '@/components/ui/sonner';
@@ -7,7 +8,7 @@ const RootLayout = () => {
     <div>
       <Toaster />
       <Navbar />
-      <h1>Hello World</h1>
+      <Outlet />
       <Footer />
     </div>
   );
