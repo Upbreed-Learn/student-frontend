@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRightIcon } from 'lucide-react';
+import { Link } from 'react-router';
 
 const Hero = () => {
   return (
@@ -9,9 +10,11 @@ const Hero = () => {
         <p className="text-xs/[100%] font-medium">
           You are about to become the best version of yourself
         </p>
-        <Button>
-          Go to Dashboard
-          <ArrowRightIcon />
+        <Button asChild>
+          <Link to="/home">
+            Go to Dashboard
+            <ArrowRightIcon />
+          </Link>
         </Button>
       </div>
     </section>

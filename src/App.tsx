@@ -3,6 +3,7 @@ import { NuqsAdapter } from 'nuqs/adapters/react';
 import RootLayout from './layout';
 import QueryProvider from './lib/query-provider';
 import Welcome from './pages/welcome';
+import Home from './pages/home';
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Welcome />,
+      },
+      {
+        path: '/home',
+        element: <Home />,
       },
       // {
       //   path: '/courses',
