@@ -57,7 +57,7 @@ const Navbar = () => {
             1 - on - 1
           </NavLink>
           <NavLink
-            to="/my-courses"
+            to="/courses"
             className={({ isActive }) =>
               cn(
                 isActive &&

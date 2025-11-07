@@ -23,7 +23,7 @@ const CourseBundles = () => {
   });
   return (
     <div className="flex items-center gap-27.5">
-      <div className="flex flex-col gap-6 text-sm/6 font-semibold text-[#949494]">
+      <aside className="flex flex-col gap-6 text-sm/6 font-semibold text-[#949494]">
         <h4 className="text-[#34A853]">Course Bundles</h4>
         <ul className="flex flex-col gap-2">
           <li>
@@ -59,7 +59,7 @@ const CourseBundles = () => {
             </button>
           </li>
         </ul>
-      </div>
+      </aside>
       <div className="relative flex flex-1 items-center gap-7.5 rounded-[10px] bg-[#305B43] py-8.5 pr-10 pl-8">
         <div className="h-43.25 w-68 overflow-hidden rounded-l-lg">
           <img
@@ -76,7 +76,7 @@ const CourseBundles = () => {
               </p>
               <div className="flex flex-col gap-1">
                 <Link
-                  to={'#'}
+                  to={'/courses/1'}
                   className="w-full max-w-66 leading-5 font-extrabold text-white"
                 >
                   <span className="absolute inset-0"></span>
@@ -105,7 +105,7 @@ const AllCourses = () => {
   });
   return (
     <div className="flex gap-10">
-      <div className="flex flex-col gap-6 text-sm/4 font-semibold text-[#6F6F6F]">
+      <aside className="flex flex-col gap-6 text-sm/4 font-semibold text-[#6F6F6F]">
         <h5 className="flex items-center gap-1">
           All Courses <ChevronRight />
         </h5>
@@ -215,7 +215,7 @@ const AllCourses = () => {
             </button>
           </li>
         </ul>
-      </div>
+      </aside>
       <div className="flex flex-1 flex-col gap-8">
         <h3 className="text-xl/[100%] font-bold">Marketing & Business</h3>
         <div className="grid grid-cols-3 gap-5">

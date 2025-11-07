@@ -4,12 +4,15 @@ import RootLayout from './layout';
 import QueryProvider from './lib/query-provider';
 import Welcome from './pages/welcome';
 import Home from './pages/home';
+import CourseDetails from './pages/courses/details';
+import Courses from './pages/courses';
+import ErrorPage from './pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     // loader: checkAuthLoader,
     children: [
       {
@@ -19,6 +22,19 @@ const router = createBrowserRouter([
       {
         path: '/home',
         element: <Home />,
+      },
+      {
+        path: '/courses',
+        children: [
+          {
+            index: true,
+            element: <Courses />,
+          },
+          {
+            path: '/courses/:id',
+            element: <CourseDetails />,
+          },
+        ],
       },
       // {
       //   path: '/courses',

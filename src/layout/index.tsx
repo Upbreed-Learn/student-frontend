@@ -2,15 +2,17 @@ import { Outlet } from 'react-router';
 import Footer from './footer';
 import Navbar from './navbar';
 import { Toaster } from '@/components/ui/sonner';
+import ScrollToTop from './scroll-to-top';
 
 const RootLayout = () => {
   return (
-    <div>
+    <>
       <Toaster />
+      <ScrollToTop />
       <Navbar />
       <Outlet />
       <Footer />
-    </div>
+    </>
   );
 };
 

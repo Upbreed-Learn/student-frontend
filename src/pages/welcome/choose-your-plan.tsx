@@ -51,7 +51,7 @@ const ChooseYourPlan = () => {
           />
           <div className="flex items-center gap-19.5 self-center">
             <Link
-              to="/my-courses"
+              to="/home"
               className="p-2 text-xs/[100%] font-semibold underline"
             >
               Skip

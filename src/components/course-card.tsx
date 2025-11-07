@@ -4,7 +4,7 @@ import preview from '../assets/images/course-preview.jpg';
 
 const CourseCard = () => {
   return (
-    <div className="relative overflow-hidden rounded-lg bg-[#F2F2F2]">
+    <div className="group relative overflow-hidden rounded-lg bg-[#F2F2F2]">
       <div className="relative h-38">
         <img
           src={preview}
@@ -16,7 +16,7 @@ const CourseCard = () => {
         </span>
         <Play
           size={36}
-          className="absolute top-1/2 left-1/2 -translate-1/2 text-white"
+          className="absolute top-1/2 left-1/2 -translate-1/2 text-white opacity-0 transition-opacity group-hover:opacity-100"
         />
       </div>
       <div className="flex flex-col gap-7 px-6 pt-2.5 pb-3.5">
@@ -25,7 +25,7 @@ const CourseCard = () => {
             <p>65 Lessons</p>
             <p>1h 37m</p>
           </div>
-          <Link to={'#'} className="text-sm/5 font-bold">
+          <Link to={'/courses/1'} className="text-sm/5 font-bold">
             <span className="absolute inset-0"></span>
             BUSINESS DEVELOPMENT
           </Link>
