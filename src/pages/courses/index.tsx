@@ -1,5 +1,13 @@
+import CourseList from './course-list';
+import Hero from './hero';
+
 const Courses = () => {
-  return <h1>Course</h1>;
+  return (
+    <>
+      <Hero />
+      <CourseList />
+    </>
+  );
 };
 
 export default Courses;

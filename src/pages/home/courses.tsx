@@ -7,7 +7,7 @@ import CourseCard from '@/components/course-card';
 const Courses = () => {
   return (
     <section className="flex justify-center pt-20 pb-49.5">
-      <div className="flex w-full max-w-7xl flex-col gap-7 pr-18 pl-34.75">
+      <div className="flex w-full max-w-7xl flex-col gap-7 px-18">
         <CourseBundles />
         <AllCourses />
       </div>
