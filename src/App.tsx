@@ -7,6 +7,7 @@ import Home from './pages/home';
 import CourseDetails from './pages/courses/details';
 import Courses from './pages/courses';
 import ErrorPage from './pages/ErrorPage';
+import Settings from './pages/settings';
 
 const router = createBrowserRouter([
   {
@@ -36,26 +37,10 @@ const router = createBrowserRouter([
           },
         ],
       },
-      // {
-      //   path: '/courses',
-      //   element: <Courses />,
-      // },
-      // {
-      //   path: '/insights',
-      //   element: <Insights />,
-      // },
-      // {
-      //   path: '/earnings',
-      //   element: <Earnings />,
-      // },
-      // {
-      //   path: '/sessions',
-      //   element: <Sessions />,
-      // },
-      // {
-      //   path: '/settings',
-      //   element: <Settings />,
-      // },
+      {
+        path: '/settings',
+        element: <Settings />,
+      },
     ],
   },
   // {

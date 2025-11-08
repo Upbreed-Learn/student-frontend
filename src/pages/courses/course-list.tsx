@@ -9,7 +9,7 @@ const CourseList = () => {
   });
 
   return (
-    <section className="flex justify-center pb-40">
+    <section className="flex justify-center overflow-hidden pb-40">
       <div className="flex w-full max-w-7xl flex-col gap-10 px-18 pt-19.25">
         <h2 className="text-sm/6 font-semibold">
           {tab === 'my-courses'
