@@ -5,12 +5,14 @@ import StarIcon from '@/assets/jsx-icons/star';
 
 const About = () => {
   return (
-    <section className="flex justify-center pt-20.5 pb-[12.6675rem]">
-      <div className="flex w-full max-w-7xl flex-col gap-5">
-        <h2 className="pl-27.25 text-xl/6 font-semibold">About this Class</h2>
-        <div className="flex flex-col gap-6">
-          <div className="flex h-126 items-center bg-[#00230F]">
-            <div className="relative h-full flex-3/4">
+    <section className="flex justify-center pt-11 pb-[12.6675rem] md:pt-20.5">
+      <div className="flex w-full max-w-7xl flex-col gap-5 max-md:px-9">
+        <h2 className="text-xl/6 font-semibold max-md:hidden md:pl-12 lg:pl-27.25">
+          About this Class
+        </h2>
+        <div className="flex flex-col gap-11 md:gap-6">
+          <div className="flex items-center max-md:flex-col max-md:gap-4 md:h-126 md:bg-[#00230F]">
+            <div className="relative h-45.25 max-md:w-full max-md:overflow-hidden max-md:rounded-[10px] sm:h-80 md:h-full md:flex-2/3 lg:flex-3/4">
               <img
                 src={preview}
                 alt="course-preview"
@@ -22,10 +24,15 @@ const About = () => {
                 className="absolute top-1/2 left-1/2 -translate-1/2"
               />
             </div>
-            <div className="scrollbar-custom flex h-full flex-1/4 flex-col gap-11 overflow-auto p-7.5 py-11">
-              <div className="flex items-center justify-between rounded-[10px] bg-[#305B43] px-9 py-3.5 text-[#D0EA50]">
-                <p className="text-xs/6 font-semibold">Trailer </p>
-                <PlayIcon size={24} />
+            <div className="scrollbar-custom flex h-97.25 flex-col gap-6 overflow-auto max-md:w-full max-md:px-5 md:h-full md:flex-1/3 md:gap-11 md:p-7.5 md:py-11 lg:flex-1/4">
+              <div className="flex flex-col gap-2">
+                <span className="text-xs/6 font-semibold text-[#7D1E1E] md:hidden">
+                  65 Lessons
+                </span>
+                <div className="flex items-center justify-between rounded-[10px] bg-[#305B43] px-9 py-3.5 text-[#D0EA50]">
+                  <p className="text-xs/6 font-semibold">Trailer </p>
+                  <PlayIcon size={24} />
+                </div>
               </div>
               <div className="flex flex-col gap-4">
                 {Array(10)
@@ -42,8 +49,8 @@ const About = () => {
               </div>
             </div>
           </div>
-          <div className="flex flex-col gap-8 pl-27.25">
-            <p className="w-full max-w-201.75 text-sm/5 tracking-[0.14px] text-black">
+          <div className="flex flex-col gap-3 md:gap-8 md:pl-12 lg:pl-27.25">
+            <p className="w-full max-w-201.75 text-sm/5 tracking-[0.14px] text-black max-md:border-b max-md:border-[#0000000D] max-md:pb-2.5">
               Learn the art and science of game design with Will Wright, the
               mind behind SimCity and The Sims. <br /> In this game design
               class, Will teaches you how to create games that empower players
@@ -53,7 +60,7 @@ const About = () => {
               prototyping, playtesting, and building a community.
             </p>
             <div className="flex flex-col gap-2">
-              <ul className="flex flex-col gap-2 text-sm/6 text-[#6F6F6F] [&_span]:font-bold">
+              <ul className="flex flex-col gap-2 text-xs text-[#6F6F6F] md:text-sm/6 [&_span]:font-bold">
                 <li>
                   Instructor(s): <span>Tony Elumelu</span>
                 </li>
@@ -64,7 +71,7 @@ const About = () => {
                   Category: <span>Business</span>
                 </li>
               </ul>
-              <div className="flex items-center gap-0.5">
+              <div className="flex items-center gap-0.5 max-md:hidden">
                 <StarIcon fill="#FFC700" />
                 <StarIcon fill="#FFC700" />
                 <StarIcon fill="#FFC700" />

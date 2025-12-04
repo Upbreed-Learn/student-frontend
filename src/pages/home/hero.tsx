@@ -6,7 +6,7 @@ const Hero = () => {
   const progressLevel = 50;
 
   return (
-    <section className="flex items-end gap-7 bg-[#305B43] pt-10 pb-8">
+    <section className="flex items-end gap-7 bg-[#305B43] pt-10 pb-8 max-lg:hidden">
       <h1 className="flex-1/3 pb-7 text-end text-4xl/[100%] font-bold text-white">
         Welcome <br /> Back <br /> Jennifer O,
       </h1>
@@ -58,3 +58,53 @@ const Hero = () => {
 };
 
 export default Hero;
+
+export const MobileHero = () => {
+  const progressLevel = 50;
+
+  return (
+    <section className="flex items-end gap-7 bg-white lg:hidden">
+      <div className="flex w-full flex-col gap-4 pt-6 pb-4 text-center">
+        <h1 className="text-xl/[100%] font-bold text-[#00230F]">
+          Welcome Back <br /> Jennifer O,
+        </h1>
+        <p className="text-xs/[10px] font-semibold text-[#9B9B9B]">
+          Try read for about 5 - 10mins a day, to track your progress to success
+        </p>
+        <div className="flex justify-center bg-[#305B43] px-9 py-6">
+          <div className="flex w-full max-w-84 flex-col gap-2 rounded bg-white p-5">
+            <p className="text-start text-xs/5 text-[#737373]">Latest course</p>
+            <div className="flex items-center gap-1.5">
+              <div className="h-[4.563125rem] w-33.5 shrink-0 overflow-hidden rounded">
+                <img
+                  src={hero}
+                  alt="home-hero"
+                  className="size-full object-cover"
+                />
+              </div>
+              <div className="flex flex-col gap-2">
+                <div className="flex flex-col gap-1">
+                  <p className="text-start text-[10px]/3 font-bold">
+                    How to Sell Anything to anyone, anywhere and anyhow
+                  </p>
+                  <p className="text-start text-[8px]/[100%] font-semibold text-[#949494]">
+                    Dupe Melanin
+                  </p>
+                </div>
+                <span className="relative block h-1 w-full rounded-lg bg-[#D9D9D9]">
+                  <span
+                    style={{
+                      width: `${progressLevel}%`,
+                    }}
+                    className="absolute top-0 left-0 h-full rounded-lg bg-[#305B43] transition-[width]"
+                  ></span>
+                  <span className="sr-only">Progress Level</span>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};

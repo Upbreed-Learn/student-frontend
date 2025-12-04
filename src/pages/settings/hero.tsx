@@ -7,8 +7,8 @@ import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
 const Hero = () => {
   return (
     <section className="flex justify-center bg-[#305B43] text-white">
-      <div className="flex w-full max-w-7xl flex-col px-18 pt-14.5">
-        <div className="flex items-center gap-13">
+      <div className="flex w-full max-w-7xl flex-col px-9 pt-14.5 md:px-12 lg:px-18">
+        <div className="flex gap-13 max-sm:flex-col sm:items-center">
           <AvatarCustom
             src={preview}
             alt="course-preview"
@@ -41,11 +41,11 @@ const SettingsTab = () => {
   return (
     <Tabs
       defaultValue="my-courses"
-      className="pl-45.25"
+      className="sm:pl-45.25"
       value={tab}
       onValueChange={setTab}
     >
-      <TabsList className="h-auto gap-8 bg-transparent">
+      <TabsList className="h-auto gap-1 bg-transparent sm:gap-8">
         <TabsTrigger
           value="profile"
           className="cursor-pointer rounded-none border-x-0 border-t-0 border-b-[5px] border-transparent pb-3 text-white transition-colors data-[state=active]:border-[#D0EA50] data-[state=active]:bg-transparent data-[state=active]:text-[#D0EA50] data-[state=active]:shadow-none"

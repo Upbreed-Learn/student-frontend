@@ -10,7 +10,7 @@ const CourseList = () => {
 
   return (
     <section className="flex justify-center overflow-hidden pb-40">
-      <div className="flex w-full max-w-7xl flex-col gap-10 px-18 pt-19.25">
+      <div className="flex w-full max-w-7xl flex-col gap-5 px-9 pt-8 md:gap-10 md:px-12 md:pt-19.25 lg:px-18">
         <h2 className="text-sm/6 font-semibold">
           {tab === 'my-courses'
             ? 'My Courses'
@@ -32,7 +32,7 @@ const CourseList = () => {
           </div>
         )}
         {(tab === 'saved' || tab === 'history') && (
-          <div className="grid grid-cols-4 gap-5">
+          <div className="grid gap-5 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
             {Array(10)
               .fill(0)
               .map((_, index) => (

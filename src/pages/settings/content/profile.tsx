@@ -91,7 +91,7 @@ const Profile = () => {
                 <FieldContent className="flex-row items-center">
                   <FieldLabel
                     htmlFor={field.name}
-                    className="flex-1/6 text-sm/[100%] font-semibold text-black"
+                    className="flex-1/6 text-sm/[100%] font-semibold text-nowrap text-black"
                   >
                     First Name:
                   </FieldLabel>
@@ -120,7 +120,7 @@ const Profile = () => {
                 <FieldContent className="flex-row items-center">
                   <FieldLabel
                     htmlFor={field.name}
-                    className="flex-1/6 text-sm/[100%] font-semibold text-black"
+                    className="flex-1/6 text-sm/[100%] font-semibold text-nowrap text-black"
                   >
                     Last Name:
                   </FieldLabel>

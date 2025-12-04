@@ -1,10 +1,11 @@
 import Courses from './courses';
-import Hero from './hero';
+import Hero, { MobileHero } from './hero';
 
 const Home = () => {
   return (
     <>
       <Hero />
+      <MobileHero />
       <Courses />
     </>
   );
