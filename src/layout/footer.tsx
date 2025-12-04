@@ -1,12 +1,13 @@
-import { Link, NavLink } from 'react-router';
-import logo from '../assets/upbreed-logo-footer.svg';
+import { useForm } from '@tanstack/react-form';
+import logo from '@/assets/upbreed-logo.svg';
+import z from 'zod';
+import { cn } from '@/lib/utils';
+import { Link, NavLink, useLocation } from 'react-router';
 import LinkedIn from '@/assets/jsx-icons/linkedin';
 import Instagram from '@/assets/jsx-icons/instagram';
 import Twitter from '@/assets/jsx-icons/twitter';
 import Facebook from '@/assets/jsx-icons/facebook';
 import Youtube from '@/assets/jsx-icons/youtube';
-import z from 'zod';
-import { useForm } from '@tanstack/react-form';
 import {
   Field,
   FieldError,
@@ -18,16 +19,17 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { Checkbox } from '@/components/ui/checkbox';
 import LockIcon from '@/assets/jsx-icons/lock';
-import { cn } from '@/lib/utils';
+import ContactUs from '@/components/contact-us';
+import Gifts from '@/components/gifts';
 
 const LINKS = [
   {
     name: 'About Us',
-    href: '#',
+    href: '/about',
   },
   {
     name: 'Career',
-    href: '#',
+    href: '/career',
   },
   {
     name: 'Classes',
@@ -35,27 +37,27 @@ const LINKS = [
   },
   {
     name: 'Pricing',
-    href: '#',
+    href: '/pricing',
   },
   {
     name: 'Press',
-    href: '#',
+    href: '/press',
   },
   {
     name: 'News',
-    href: '#',
+    href: '/news',
   },
   {
     name: 'Privacy Policy',
-    href: '#',
+    href: '/privacy',
   },
   {
     name: 'Terms',
-    href: '#',
+    href: '/terms',
   },
   {
     name: 'FAQ',
-    href: '#',
+    href: '/#faqs',
   },
   {
     name: 'Contact Us',
@@ -77,6 +79,8 @@ const formSchema = z.object({
 });
 
 const Footer = () => {
+  const { pathname } = useLocation();
+
   const form = useForm({
     defaultValues: {
       email: '',
@@ -93,10 +97,10 @@ const Footer = () => {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="flex w-full flex-col bg-[#00230F] pt-17 pb-10">
-      <div className="flex w-full max-w-7xl items-end gap-36 self-center px-18 pb-7">
+    <footer className="flex w-full flex-col bg-[#00230F] pt-14 pb-10 md:pt-17">
+      <div className="flex w-full max-w-7xl gap-14 self-center px-9 pb-7 max-md:flex-col md:items-end md:gap-36 md:px-12 md:max-lg:justify-between lg:px-18">
         <div className="flex items-end gap-22.75">
-          <img src={logo} alt="upbreed logo" />
+          <img src={logo} alt="upbreed logo" className="max-lg:hidden" />
           <div className="flex gap-35 text-sm/9 text-white">
             <ul>
               {LINKS.slice(0, 6).map(link => (
@@ -104,7 +108,10 @@ const Footer = () => {
                   <NavLink
                     to={link.href}
                     className={({ isActive }) =>
-                      cn(isActive && 'text-[#D0EA50]')
+                      cn(
+                        'before:hidden hover:text-[#D0EA50]',
+                        isActive && 'text-[#D0EA50]',
+                      )
                     }
                   >
                     {link.name}
@@ -115,34 +122,66 @@ const Footer = () => {
             <ul>
               {LINKS.slice(6).map(link => (
                 <li key={link.name}>
-                  <NavLink
-                    to={link.href}
-                    className={({ isActive }) =>
-                      cn(isActive && 'text-[#D0EA50]')
-                    }
-                  >
-                    {link.name}
-                  </NavLink>
+                  {link.name.toLowerCase().includes('contact') ? (
+                    <ContactUs>{link.name}</ContactUs>
+                  ) : link.name.toLowerCase().includes('gifts') ? (
+                    <Gifts>{link.name}</Gifts>
+                  ) : (
+                    <NavLink
+                      to={link.href}
+                      className={cn(
+                        'before:hidden hover:text-[#D0EA50]',
+                        pathname.length > 2 &&
+                          pathname.includes(link.href) &&
+                          'text-[#D0EA50]',
+                        pathname.length < 2 &&
+                          pathname === link.href &&
+                          'hover:text-[#D0EA50]',
+                      )}
+                    >
+                      {link.name}
+                    </NavLink>
+                  )}
                 </li>
               ))}
             </ul>
           </div>
         </div>
-        <div className="flex flex-col gap-12 self-end">
+        <div className="flex flex-col gap-12 self-end max-md:w-full">
           <div className="flex items-center gap-7">
-            <Link to={'/'}>
+            <Link
+              target="_blank"
+              to="https://www.linkedin.com/company/upbreedlearn/about/?viewAsMember=true"
+              className="transition-opacity hover:opacity-50"
+            >
               <LinkedIn />
             </Link>
-            <Link to={'/'}>
+            <Link
+              target="_blank"
+              to="https://www.instagram.com/upbreedlearn"
+              className="transition-opacity hover:opacity-50"
+            >
               <Instagram />
             </Link>
-            <Link to={'/'}>
+            <Link
+              target="_blank"
+              to="https://x.com/upbreedlearn"
+              className="transition-opacity hover:opacity-50"
+            >
               <Twitter />
             </Link>
-            <Link to={'/'}>
+            <Link
+              target="_blank"
+              to="https://www.facebook.com/upbreedlearn"
+              className="transition-opacity hover:opacity-50"
+            >
               <Facebook />
             </Link>
-            <Link to={'/'}>
+            <Link
+              target="_blank"
+              to="https://youtube.com/@upbreedlearn?si=QYEE2kDdYaiB0cHU"
+              className="transition-opacity hover:opacity-50"
+            >
               <Youtube />
             </Link>
           </div>
@@ -152,7 +191,7 @@ const Footer = () => {
               e.preventDefault();
               form.handleSubmit();
             }}
-            className="flex w-full flex-col gap-6"
+            className="flex w-full flex-col gap-6 px-0"
           >
             <FieldGroup>
               <form.Field
@@ -178,9 +217,9 @@ const Footer = () => {
                           aria-invalid={isInvalid}
                           type="email"
                           placeholder="Email"
-                          className="h-12 w-75.5 rounded-none rounded-l-lg border-[#9B9B9B] bg-[#47474700] text-white placeholder:text-[#9B9B9B]"
+                          className="h-12 flex-2/3 rounded-none rounded-l-lg border-[#9B9B9B] bg-[#47474700] text-white placeholder:text-[#9B9B9B] xl:w-73"
                         />
-                        <Button className="h-12 w-[9.88875rem] rounded-none rounded-r-lg">
+                        <Button className="h-12 flex-1/3 rounded-none rounded-r-lg xl:w-[9.88875rem]">
                           Subscribe
                         </Button>
                       </FieldSet>
@@ -210,7 +249,7 @@ const Footer = () => {
                         />
                         <FieldLabel
                           htmlFor={field.name}
-                          className="w-full text-sm/[100%] font-semibold text-nowrap text-white"
+                          className="w-full text-[10px] leading-[100%] font-semibold text-white md:text-sm xl:text-nowrap"
                         >
                           <span className="text-[#FF0000]">*</span> By clicking
                           here, I agree to share my information
@@ -227,8 +266,11 @@ const Footer = () => {
           </form>
         </div>
       </div>
-      <div className="flex justify-center border-t-2 border-[#305B43] pt-3">
-        <div className="flex w-full max-w-7xl items-center gap-16 px-18 text-sm/[100%] font-semibold text-white">
+      <div className="px-9 pt-0 pb-7 md:px-12 lg:px-18">
+        <img src={logo} alt="upbreed logo" className="lg:hidden" />
+      </div>
+      <div className="flex justify-center border-[#305B43] pt-3 md:border-t-2">
+        <div className="flex w-full max-w-7xl items-center gap-12 px-9 text-xs leading-[100%] font-semibold text-white md:gap-16 md:px-12 md:text-sm lg:px-18">
           <p>(c) {year} upbreed </p>
           <div className="flex items-center gap-2">
             <LockIcon />

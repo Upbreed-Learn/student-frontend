@@ -6,8 +6,8 @@ import CourseCard from '@/components/course-card';
 
 const Courses = () => {
   return (
-    <section className="flex justify-center pt-20 pb-49.5">
-      <div className="flex w-full max-w-7xl flex-col gap-7 px-18">
+    <section className="flex justify-center pt-5 pb-49.5 md:pt-12 lg:pt-20">
+      <div className="flex w-full max-w-7xl flex-col gap-7 px-9 md:px-12 lg:px-18">
         <CourseBundles />
         <AllCourses />
       </div>
@@ -22,16 +22,16 @@ const CourseBundles = () => {
     defaultValue: 'new-courses',
   });
   return (
-    <div className="flex items-center gap-27.5">
-      <aside className="flex flex-col gap-6 text-sm/6 font-semibold text-[#949494]">
+    <div className="flex max-lg:flex-col md:gap-12 lg:items-center lg:gap-27.5">
+      <aside className="flex flex-col gap-2 text-sm/6 font-semibold text-[#949494] lg:gap-6">
         <h4 className="text-[#34A853]">Course Bundles</h4>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex gap-1 text-xs/[30px] md:gap-2 lg:flex-col">
           <li>
             <button
               className="cursor-pointer"
               onClick={() => setCourse('new-courses')}
             >
-              New Courses
+              New Courses <span className="lg:hidden">.</span>
             </button>
           </li>
           <li>
@@ -39,7 +39,7 @@ const CourseBundles = () => {
               className="cursor-pointer"
               onClick={() => setCourse('top-rated')}
             >
-              Top rated
+              Top rated <span className="lg:hidden">.</span>
             </button>
           </li>
           <li>
@@ -47,7 +47,7 @@ const CourseBundles = () => {
               className="cursor-pointer"
               onClick={() => setCourse('popular-courses')}
             >
-              Popular courses
+              Popular courses <span className="lg:hidden">.</span>
             </button>
           </li>
           <li>
@@ -55,12 +55,12 @@ const CourseBundles = () => {
               className="cursor-pointer"
               onClick={() => setCourse('gifts')}
             >
-              Gifts
+              Gifts <span className="lg:hidden">.</span>
             </button>
           </li>
         </ul>
       </aside>
-      <div className="relative flex flex-1 items-center gap-7.5 rounded-[10px] bg-[#305B43] py-8.5 pr-10 pl-8">
+      <div className="relative flex flex-1 items-center gap-7.5 rounded-[10px] bg-[#305B43] py-8.5 pr-10 pl-8 max-md:hidden">
         <div className="h-43.25 w-68 overflow-hidden rounded-l-lg">
           <img
             src={preview}
@@ -103,13 +103,14 @@ const AllCourses = () => {
   const [_, setCourse] = useQueryState('allCourses', {
     defaultValue: 'illustration',
   });
+
   return (
-    <div className="flex gap-10">
+    <div className="flex gap-10 max-md:flex-col">
       <aside className="flex flex-col gap-6 text-sm/4 font-semibold text-[#6F6F6F]">
         <h5 className="flex items-center gap-1">
           All Courses <ChevronRight />
         </h5>
-        <ul className="flex flex-col gap-3">
+        <ul className="flex gap-3 max-md:flex-wrap max-md:text-xs md:flex-col [&>li]:border-[#6F6F6F] [&>li]:last:border-none [&>li]:last:pr-0 max-md:[&>li]:border-r max-md:[&>li]:pr-3">
           <li>
             <button
               className="cursor-pointer"
@@ -217,8 +218,10 @@ const AllCourses = () => {
         </ul>
       </aside>
       <div className="flex flex-1 flex-col gap-8">
-        <h3 className="text-xl/[100%] font-bold">Marketing & Business</h3>
-        <div className="grid grid-cols-3 gap-5">
+        <h3 className="text-xl/[100%] font-bold max-md:hidden">
+          Marketing & Business
+        </h3>
+        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {Array(6)
             .fill(0)
             .map((_, index) => (
